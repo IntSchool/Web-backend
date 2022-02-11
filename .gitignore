@@ -1,0 +1,4 @@
+venv/
+Training/db.sqlite3
+**/*.pyc
+Training/media/
