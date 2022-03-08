@@ -117,10 +117,10 @@ class PhotoCategory(ListView):
     model = Photo
     template_name = 'main/index.html'
     context_object_name = 'album'
-    allow_empty = False
+    allow_empty = True
 
     def get_queryset(self):
-        return Photo.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True)
+        return Photo.objects.filter(cat__slug__in=self.kwargs['cat_slug'], is_published=True)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
